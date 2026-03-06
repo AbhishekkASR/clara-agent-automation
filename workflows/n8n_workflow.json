@@ -1,0 +1,47 @@
+{
+  "name": "Clara Agent Automation",
+  "nodes": [
+    {
+      "name": "Watch Demo Dataset",
+      "type": "filesystemTrigger",
+      "parameters": {
+        "path": "dataset/demo_calls"
+      }
+    },
+    {
+      "name": "Extract Account Data",
+      "type": "executeCommand",
+      "parameters": {
+        "command": "python scripts/extract_account_data.py"
+      }
+    },
+    {
+      "name": "Generate Agent Spec v1",
+      "type": "executeCommand",
+      "parameters": {
+        "command": "python scripts/generate_agent_spec.py"
+      }
+    },
+    {
+      "name": "Apply Onboarding Updates",
+      "type": "executeCommand",
+      "parameters": {
+        "command": "python scripts/apply_updates.py"
+      }
+    },
+    {
+      "name": "Generate Agent Spec v2",
+      "type": "executeCommand",
+      "parameters": {
+        "command": "python scripts/generate_agent_spec_v2.py"
+      }
+    },
+    {
+      "name": "Update Tracker",
+      "type": "executeCommand",
+      "parameters": {
+        "command": "python scripts/task_tracker.py"
+      }
+    }
+  ]
+}

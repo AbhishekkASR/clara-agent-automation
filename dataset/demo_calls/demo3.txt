@@ -1,0 +1,20 @@
+Company name: CoolAir AC Services
+
+Business hours: Monday to Sunday 9 AM to 8 PM
+Timezone: IST
+
+Office address: BTM Layout, Bangalore, Karnataka
+
+Services offered:
+AC repair
+AC installation
+AC gas refill
+AC servicing
+
+Emergency situations include:
+AC failure during extreme heat
+gas leakage from AC unit
+
+Emergency calls must be transferred to the on-call AC technician.
+
+If the call transfer fails, record caller details and notify the supervisor.

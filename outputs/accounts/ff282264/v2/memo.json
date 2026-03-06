@@ -1,0 +1,27 @@
+{
+    "account_id": "ff282264",
+    "company_name": "Sharma Plumbing Services",
+    "business_hours": "Monday to Sunday 8 AM to 7 PM",
+    "office_address": "Shop No. 12, Aliganj Market, Lucknow, Uttar Pradesh",
+    "services_supported": [
+        "pipe repair",
+        "water leakage repair",
+        "major water leakage",
+        "burst water pipe"
+    ],
+    "emergency_definition": [
+        "burst water pipe",
+        "sewer backup"
+    ],
+    "emergency_routing_rules": "Route to on-call technician",
+    "non_emergency_routing_rules": "Create service ticket",
+    "call_transfer_rules": {
+        "timeout": 20,
+        "retries": 2
+    },
+    "integration_constraints": [],
+    "after_hours_flow_summary": "Collect emergency details and transfer",
+    "office_hours_flow_summary": "Collect caller info and route to office",
+    "questions_or_unknowns": [],
+    "notes": "Fallback routing updated to assistant manager"
+}

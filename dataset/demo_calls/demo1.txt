@@ -1,0 +1,19 @@
+Company name: Sharma Plumbing Services
+
+Business hours: Monday to Saturday 9 AM to 6 PM
+Timezone: IST
+
+Office address: Shop No. 12, Aliganj Market, Lucknow, Uttar Pradesh
+
+Services offered:
+pipe repair
+water leakage repair
+bathroom fitting installation
+
+Emergency situations include:
+major water leakage
+burst water pipe
+
+Emergency calls should be transferred to the on-call technician.
+
+If transfer fails, inform the caller that the technician will call back within 20 minutes.

@@ -1,0 +1,21 @@
+{
+    "account_id": "b8172fd2",
+    "company_name": "Gupta Electrical Solutions",
+    "business_hours": "Monday to Sunday 8 AM to 7 PM",
+    "office_address": "Sector 62, Noida, Uttar Pradesh",
+    "services_supported": [],
+    "emergency_definition": [
+        "sewer backup"
+    ],
+    "emergency_routing_rules": "Route to on-call technician",
+    "non_emergency_routing_rules": "Create service ticket",
+    "call_transfer_rules": {
+        "timeout": 20,
+        "retries": 2
+    },
+    "integration_constraints": [],
+    "after_hours_flow_summary": "Collect emergency details and transfer",
+    "office_hours_flow_summary": "Collect caller info and route to office",
+    "questions_or_unknowns": [],
+    "notes": "Fallback routing updated to assistant manager"
+}

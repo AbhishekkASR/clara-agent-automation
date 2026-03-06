@@ -1,0 +1,20 @@
+Company name: Delhi Home Repair Services
+
+Business hours: Monday to Saturday 9 AM to 7 PM
+Timezone: IST
+
+Office address: Karol Bagh, New Delhi
+
+Services offered:
+plumbing repair
+electrical repair
+carpentry services
+appliance repair
+
+Emergency situations include:
+major water leakage
+electrical short circuit
+
+Emergency calls should be transferred to the nearest available technician.
+
+If transfer fails, collect customer details and schedule an urgent callback.

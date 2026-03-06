@@ -1,0 +1,24 @@
+{
+    "account_id": "eab2079d",
+    "company_name": "Gupta Electrical Solutions",
+    "business_hours": {
+        "days": "Mon-Fri",
+        "start": "09:00",
+        "end": "17:00",
+        "timezone": ""
+    },
+    "office_address": "Sector 62, Noida, Uttar Pradesh",
+    "services_supported": [],
+    "emergency_definition": [],
+    "emergency_routing_rules": "Route to on-call technician",
+    "non_emergency_routing_rules": "Create service ticket",
+    "call_transfer_rules": {
+        "timeout": 20,
+        "retries": 2
+    },
+    "integration_constraints": [],
+    "after_hours_flow_summary": "Collect emergency details and transfer",
+    "office_hours_flow_summary": "Collect caller info and route to office",
+    "questions_or_unknowns": [],
+    "notes": ""
+}

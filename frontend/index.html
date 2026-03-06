@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Clara Agent Automation Dashboard</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+margin:0;
+background: linear-gradient(135deg,#4f8cff,#6a5cff,#9b59ff);
+color:#333;
+}
+
+.header{
+text-align:center;
+padding:40px;
+color:white;
+}
+
+#accounts{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.agent-card{
+background:#f5f7ff;
+padding:15px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+margin-bottom:20px;
+border-radius:12px;
+box-shadow:0 6px 20px rgba(0,0,0,0.15);
+}
+
+h1{
+margin:0;
+font-size:36px;
+}
+
+.subtitle{
+opacity:0.9;
+margin-top:10px;
+}
+
+button{
+background:linear-gradient(45deg,#4f8cff,#9b59ff);
+border:none;
+color:white;
+padding:12px 25px;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.stats{
+display:flex;
+justify-content:space-between;
+margin-top:20px;
+}
+
+.stat-box{
+background:#f5f7ff;
+padding:15px;
+border-radius:10px;
+text-align:center;
+width:30%;
+}
+
+.stat-number{
+font-size:28px;
+font-weight:bold;
+color:#4f8cff;
+}
+
+.footer{
+text-align:center;
+padding:20px;
+color:white;
+opacity:0.9;
+}
+
+.status{
+margin-top:15px;
+font-weight:bold;
+color:#4f8cff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>Clara AI Automation</h1>
+
+<p class="subtitle">
+Demo Call → Retell Agent Draft → Onboarding Update Pipeline
+</p>
+
+</div>
+
+
+<div class="container">
+</div>
+<div class="card">
+    <h2>Generated Agents</h2>
+    <div id="accounts"></div>
+</div>
+
+<div class="card">
+
+<h2>Pipeline Control</h2>
+
+<p>
+Click the button below to simulate running the automation pipeline.
+</p>
+
+<button onclick="runPipeline()" id="runBtn">Run Pipeline</button>
+<p id="status"></p>
+
+</div>
+
+
+<div class="card">
+
+<h2>System Statistics</h2>
+
+<div class="stats">
+
+<div class="stat-box">
+<div class="stat-number">5</div>
+<p>Demo Calls</p>
+</div>
+
+<div class="stat-box">
+<div class="stat-number">5</div>
+<p>Onboarding Calls</p>
+</div>
+
+<div class="stat-box">
+<div class="stat-number">10</div>
+<p>Total Accounts</p>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>Pipeline Steps</h2>
+
+<ul>
+<li>Extract account information from transcripts</li>
+<li>Generate structured Account Memo JSON</li>
+<li>Create Retell Agent Draft (v1)</li>
+<li>Apply onboarding updates</li>
+<li>Generate Agent Draft (v2)</li>
+<li>Track updates in Google Sheets</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="footer">
+
+<p>Built by Abhishek Singh • Clara Automation Assignment</p>
+
+</div>
+
+
+<script>
+
+async function loadAccounts(){
+
+    try{
+
+        const response = await fetch("/accounts");
+        const data = await response.json();
+
+        const container = document.getElementById("accounts");
+        container.innerHTML = "";
+
+        data.forEach(acc => {
+
+            container.innerHTML += `
+                <div class="stat-box">
+                    <h3>${acc.company}</h3>
+                    <p><b>Services:</b> ${acc.services.join(", ")}</p>
+                    <p><b>Emergencies:</b> ${acc.emergencies.join(", ")}</p>
+                </div>
+            `;
+
+        });
+
+    } catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+async function runPipeline(){
+
+    const btn = document.getElementById("runBtn");
+    const status = document.getElementById("status");
+
+    btn.disabled = true;
+    status.innerText = "Running pipeline...";
+
+    try{
+
+        const response = await fetch("/run-pipeline", {
+            method: "POST"
+        });
+
+        const data = await response.json();
+
+        if(response.ok){
+            status.innerText = "Pipeline completed successfully!";
+            loadAccounts();
+        }
+        else{
+            status.innerText = "Pipeline failed: " + data.message;
+        }
+
+    } catch(err){
+
+        status.innerText = "Server connection error";
+        console.error(err);
+
+    }
+
+    btn.disabled = false;
+
+}
+
+// load agents when page loads
+loadAccounts();
+
+</script>
+</body>
+
+</html>

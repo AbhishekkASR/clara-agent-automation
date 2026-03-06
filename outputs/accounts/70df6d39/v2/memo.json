@@ -1,0 +1,23 @@
+{
+    "account_id": "70df6d39",
+    "company_name": "CoolAir AC Services",
+    "business_hours": "Monday to Sunday 8 AM to 7 PM",
+    "office_address": "BTM Layout, Bangalore, Karnataka",
+    "services_supported": [
+        "gas leakage from AC unit"
+    ],
+    "emergency_definition": [
+        "sewer backup"
+    ],
+    "emergency_routing_rules": "Route to on-call technician",
+    "non_emergency_routing_rules": "Create service ticket",
+    "call_transfer_rules": {
+        "timeout": 20,
+        "retries": 2
+    },
+    "integration_constraints": [],
+    "after_hours_flow_summary": "Collect emergency details and transfer",
+    "office_hours_flow_summary": "Collect caller info and route to office",
+    "questions_or_unknowns": [],
+    "notes": "Fallback routing updated to assistant manager"
+}
